@@ -1,0 +1,32 @@
+La empresa de seguros TK-U, 
+ tiene la necesidad de realizar
+cientos de 
+cotizaciones a diario para sus 
+potenciales clientes. 
+Para optimizar el servicio y que las cotizaciónes no se demoren, nos piden hacer un hacer un programa.
+
+Este programa que llamaremos cotizador automático completa los siguientes requisitos solicitados:
+
+Es un cliente potencial toda persona mayor de edad, quien tendrán de manera inicial  un plan básico. 
+Este plan básico sin recargos aplica para  una persona  la cual no tiene propiedades, ni sueldo, ni conyugue y sin hijos 
+El costo de este plan básico es de Q2000.
+
+Partiendo de este plan básico se harán recargos de:
+
+35% sobre el valor de cualquier propiedad 5% sobre su sueldo
+
+10% sobre Q2000 del plan basico si su edad está en el rango de 18 a 24 años
+20% sobre Q2000 del plan basico si su edad está en el rango de 25 a 49 años 
+Y del 30% sobre Q2000 del plan basico si su edad es de 50 años o mayor
+
+Si el potencial cliente tiene conyugue tendrá un recargo según su rango de edad con los mismos porcentajes que se aplican al titular, porcentajes sobre costo del plan basico.
+
+Si el potencial cliente tiene hijos, tendrá un recargo del 20% por hijo, monto sobre el costo del plan básico.
+
+El monto total será la suma de 
+
+El plan básico + los recargos sumados
+
+El cotizador automático presentará 
+El nombre del potencial cliente y el total
+Al terminar el cálculo seguirá preguntando otra el siguiente cliente y así consecutivamente hasta que se le indique detenerse.
