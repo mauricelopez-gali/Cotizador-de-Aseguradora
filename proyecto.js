@@ -19,6 +19,8 @@ var recargo = 0
 var recargo_total = 0
 var recargo_total_conyuge = 0
 var recargo_conyuge = 0
+var recargo_hijos = 0
+var recargo_total_hijos = 0
 
 //Precio final
 var precio_final = 0
@@ -34,7 +36,7 @@ var casado = prompt("¿Está casado actualmente?")
 //Comprobamos la edad del cónyuge, solamente si se está casado/a
 var edad_conyuge
 if ("SI" == casado.toUpperCase()) {
-  edad_conyuge = prompt("¿Que edad tiene su esposo/a?", "si/no")
+  edad_conyuge = prompt("¿Que edad tiene su esposo/a?")
 }
 //convirtiendo las edades ingresadas a números
 var edad_numero = parseInt(edad)
@@ -47,6 +49,12 @@ if ("SI" == casado.toUpperCase()) {
 var hijos = prompt("¿Tiene hijos o hijas?")
 //Comprobamos la cantidad de hijos solamente si los tienen
 var cantidad_hijos
+if ("SI" == hijos.toUpperCase()) {
+  cantidad_hijos = prompt("¿Cuantos hijos tiene?")
+}
+if ("SI" == hijos.toUpperCase()) {
+  cantidad_hijos_numero = parseInt(cantidad_hijos)
+}
 /**
  * 1. convierta la cantidad de hijos a numero
  */
@@ -81,35 +89,44 @@ if (edad_numero >= 50) {
  */
 
 
- if (edad_conyuge_numero >= 18 && edad_conyuge_numero < 25) {
-   //Calculamos el recargo en base a la edad
-   recargo_conyuge = precio_base * casado_18
-   //Sumamos todos los recargos que hemos obtenido
-   recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
- }
- if (edad_conyuge_numero >= 25 && edad_conyuge_numero < 50) {
-   //Calculamos el recargo en base a la edad
-   recargo_conyuge = precio_base * casado_25
-   //Sumamos todos los recargos que hemos obtenido
-   recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
- }
- if (edad_conyuge_numero >= 50) {
-   //Calculamos el recargo en base a la edad
-   recargo_conyuge = precio_base * casado_50
-   //Sumamos todos los recargos que hemos obtenido
-   recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
- }
+if (edad_conyuge_numero >= 18 && edad_conyuge_numero < 25) {
+  //Calculamos el recargo en base a la edad
+  recargo_conyuge = precio_base * casado_18
+  //Sumamos todos los recargos que hemos obtenido
+  recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
+}
+if (edad_conyuge_numero >= 25 && edad_conyuge_numero < 50) {
+  //Calculamos el recargo en base a la edad
+  recargo_conyuge = precio_base * casado_25
+  //Sumamos todos los recargos que hemos obtenido
+  recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
+}
+if (edad_conyuge_numero >= 50) {
+  //Calculamos el recargo en base a la edad
+  recargo_conyuge = precio_base * casado_50
+  //Sumamos todos los recargos que hemos obtenido
+  recargo_total_conyuge = recargo_total_conyuge + recargo_conyuge
+}
+
+/**
+ * 3. Recargo por la cantidad de hijos
+ */
+if (cantidad_hijos_numero > 0) {
+  //Calculamos el recargo en base a cantidad de hijos
+  recargo_hijos = precio_base * hijos_recargo * cantidad_hijos_numero
+  //Sumamos todos los recargos que hemos obtenido
+  recargo_total_hijos = recargo_total_hijos + recargo_hijos
+}
+
+//nos aseguramos que todos sean enteros
 var recargo_numero = parseInt(recargo)
 var recargo_total_numero = parseInt(recargo_total)
 var recargo_conyuge_numero = parseInt(recargo_conyuge)
 var recargo_total_conyuge_numero = parseInt(recargo_total_conyuge)
-var recargo_total_global = recargo_total_numero + recargo_conyuge_numero
-/**
- * 3. Recargo por la cantidad de hijos
- */
+var recargo_total_hijos_numero = parseInt(recargo_total_hijos)
+var recargo_total_global = recargo_total_numero + recargo_conyuge_numero + recargo_total_hijos_numero
 
-
-precio_final = precio_base + recargo_total_numero + recargo_total_conyuge_numero
+precio_final = precio_base + recargo_total_global
 
 //Resultado
 alert("Para el asegurado " + nombre)
